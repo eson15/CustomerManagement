@@ -1,14 +1,18 @@
 package domain;
 
+import java.util.Date;
+
 public class Customer {
 	
 	private String id;
 	private String name;
 	private String gender;
-	private String birthday;
+	private Date birthday;
 	private String cellphone;
 	private String email;
 	private String likes;
+	private String type;
+	private String description;
 	
 	public String getId() {
 		return id;
@@ -28,10 +32,10 @@ public class Customer {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getBirthday() {
+	public Date getBirthday() {
 		return birthday;
 	}
-	public void setBirthday(String birthday) {
+	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
 	public String getCellphone() {
@@ -52,4 +56,17 @@ public class Customer {
 	public void setLikes(String likes) {
 		this.likes = likes;
 	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
 }
