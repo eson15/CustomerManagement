@@ -1,6 +1,6 @@
 package exception;
 
-public class DaoException extends RuntimeException {
+public class DaoException extends Exception {
 
 	public DaoException() {
 		super();
@@ -27,5 +27,6 @@ public class DaoException extends RuntimeException {
 		super(cause);
 		// TODO Auto-generated constructor stub
 	}
+
 	
 }

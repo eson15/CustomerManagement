@@ -20,7 +20,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	private ResultSet rs = null;
 	
 	@Override
-	public void addCustomer(Customer customer){
+	public void addCustomer(Customer customer) throws DaoException{
 		try {
 			conn = JdbcUtils.getConnection();
 			String sql = "insert into customer(id,name,gender,birthday,cellphone,email,preference,type,description) values(?,?,?,?,?,?,?,?,?)";
@@ -35,7 +35,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			st.setString(8, customer.getType());
 			st.setString(9, customer.getDescription());
 			st.executeUpdate();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			throw new DaoException(e);
 		} finally {
@@ -45,7 +45,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
 	//find a customer by id from database
 	@Override
-	public Customer findCustomer(String id){
+	public Customer findCustomer(String id) throws DaoException{
 		try {
 			conn = JdbcUtils.getConnection();
 			String sql = "select * from customer where id=?";
@@ -66,7 +66,7 @@ public class CustomerDaoImpl implements CustomerDao {
 				return customer;
 			}
 			return null;
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			throw new DaoException(e);
 		} finally{
@@ -76,7 +76,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	
 	//update a customer from database
 	@Override
-	public void updateCustomer(Customer customer){
+	public void updateCustomer(Customer customer) throws DaoException{
 		try {
 			conn = JdbcUtils.getConnection();
 			String sql = "update customer set name=?,gender=?,birthday=?,cellphone=?,email=?,preference=?,type=?,description=? where id=?";
@@ -91,7 +91,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			st.setString(8, customer.getDescription());
 			st.setString(9, customer.getId());
 			st.executeUpdate();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			throw new DaoException(e);
 		} finally {
@@ -101,14 +101,14 @@ public class CustomerDaoImpl implements CustomerDao {
 
 	//delete a customer from database
 	@Override
-	public void deleteCustomer(String id){
+	public void deleteCustomer(String id) throws DaoException{
 		try {
 			conn = JdbcUtils.getConnection();
 			String sql = "delete from customer where id=?";
 			st = conn.prepareStatement(sql);
 			st.setString(1, id);
 			st.executeUpdate();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			throw new DaoException(e);
 		} finally{
@@ -118,7 +118,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	
 	//get all customers from database
 	@Override
-	public List<Customer> getAll(){
+	public List<Customer> getAll() throws DaoException{
 		try {
 			conn = JdbcUtils.getConnection();
 			String sql = "select * from customer";
@@ -139,7 +139,7 @@ public class CustomerDaoImpl implements CustomerDao {
 				list.add(customer);
 			}
 			return list;
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			throw new DaoException(e);
 		} finally {

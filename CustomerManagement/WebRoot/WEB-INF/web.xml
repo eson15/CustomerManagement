@@ -1,6 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>CustomerManagement</display-name>
+  <servlet>
+    <servlet-name>AddCustomerUIServlet</servlet-name>
+    <servlet-class>web.UI.AddCustomerUIServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddCustomerServlet</servlet-name>
+    <servlet-class>web.controller.AddCustomerServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>HeaderUIServlet</servlet-name>
+    <servlet-class>web.UI.HeaderUIServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>BodyUIServlet</servlet-name>
+    <servlet-class>web.UI.BodyUIServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ListCustomerServlet</servlet-name>
+    <servlet-class>web.controller.ListCustomerServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeleteCustomerServlet</servlet-name>
+    <servlet-class>web.controller.DeleteCustomerServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UpdateCustomerServlet</servlet-name>
+    <servlet-class>web.controller.UpdateCustomerServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UpdateCustomerUIServlet</servlet-name>
+    <servlet-class>web.UI.UpdateCustomerUIServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>AddCustomerUIServlet</servlet-name>
+    <url-pattern>/servlet/AddCustomerUIServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddCustomerServlet</servlet-name>
+    <url-pattern>/servlet/AddCustomerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HeaderUIServlet</servlet-name>
+    <url-pattern>/servlet/HeaderUIServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BodyUIServlet</servlet-name>
+    <url-pattern>/servlet/BodyUIServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ListCustomerServlet</servlet-name>
+    <url-pattern>/servlet/ListCustomerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteCustomerServlet</servlet-name>
+    <url-pattern>/servlet/DeleteCustomerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateCustomerServlet</servlet-name>
+    <url-pattern>/servlet/UpdateCustomerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateCustomerUIServlet</servlet-name>
+    <url-pattern>/servlet/UpdateCustomerUIServlet</url-pattern>
+  </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
