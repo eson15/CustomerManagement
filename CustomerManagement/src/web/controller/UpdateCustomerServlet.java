@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import domain.Customer;
 import exception.DaoException;
+import service.BusinessService;
 import service.impl.BusinessServiceImpl;
 import utils.WebUtils;
 
@@ -22,7 +23,7 @@ public class UpdateCustomerServlet extends HttpServlet {
 		
 		try {
 			Customer customer = WebUtils.requestToBean(request, Customer.class);
-			BusinessServiceImpl service = new BusinessServiceImpl();
+			BusinessService service = new BusinessServiceImpl();
 			service.updateCustomer(customer);
 			request.setAttribute("message", "更新成功！本页面将在3秒后跳转到客户列表<meta http-equiv='refresh' content='3;url=/CustomerManagement/servlet/ListCustomerServlet'");
 			request.getRequestDispatcher("/message.jsp").forward(request, response);

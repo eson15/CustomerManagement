@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import domain.Customer;
 import exception.DaoException;
+import service.BusinessService;
 import service.impl.BusinessServiceImpl;
 
 public class ListCustomerServlet extends HttpServlet {
@@ -21,7 +22,7 @@ public class ListCustomerServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		
 		try {
-			BusinessServiceImpl service = new BusinessServiceImpl();
+			BusinessService service = new BusinessServiceImpl();
 			List<Customer> list;
 			list = service.getAllCustomer();
 			request.setAttribute("list", list);

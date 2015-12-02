@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import domain.Customer;
 import exception.DaoException;
+import service.BusinessService;
 import service.impl.BusinessServiceImpl;
 import utils.WebUtils;
 
@@ -22,7 +23,7 @@ public class AddCustomerServlet extends HttpServlet {
 		try {
 			Customer customer = WebUtils.requestToBean(request, Customer.class);
 			customer.setId(WebUtils.makeID());
-			BusinessServiceImpl service = new BusinessServiceImpl();
+			BusinessService service = new BusinessServiceImpl();
 			service.addCustomer(customer);
 			request.setAttribute("message", "添加成功，可以点击“查看客户”进行查看！");
 			request.getRequestDispatcher("/message.jsp").forward(request, response);

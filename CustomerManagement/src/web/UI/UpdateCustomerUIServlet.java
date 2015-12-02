@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.BusinessService;
 import service.impl.BusinessServiceImpl;
 import utils.Globals;
 import domain.Customer;
@@ -21,7 +22,7 @@ public class UpdateCustomerUIServlet extends HttpServlet {
 		
 		try {
 			String customerid = request.getParameter("customerid");
-			BusinessServiceImpl service = new BusinessServiceImpl();
+			BusinessService service = new BusinessServiceImpl();
 			Customer customer = service.findCustomer(customerid);
 			request.setAttribute("customer", customer);
 			request.setAttribute("preferences", Globals.preferences);

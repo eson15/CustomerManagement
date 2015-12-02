@@ -26,7 +26,7 @@ public class CustomerDaoTest {
 		customer.setBirthday(new Date());
 		customer.setCellphone("123456778");
 		customer.setLikes(Globals.preferences[3]);
-		customer.setType(Globals.type[0]);
+		customer.setType(Globals.types[0]);
 		customer.setDescription("一个坏人");
 		dao.addCustomer(customer);
 		//在下面打断点调试

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import exception.DaoException;
+import service.BusinessService;
 import service.impl.BusinessServiceImpl;
 
 public class DeleteCustomerServlet extends HttpServlet {
@@ -17,7 +18,7 @@ public class DeleteCustomerServlet extends HttpServlet {
 
 		try {
 			String customerid = request.getParameter("customerid");
-			BusinessServiceImpl service = new BusinessServiceImpl();
+			BusinessService service = new BusinessServiceImpl();
 			service.deleteCustomer(customerid);
 			request.setAttribute("message", "删除成功！本页面将在3秒后跳转到客户列表<meta http-equiv='refresh' content='3;url=/CustomerManagement/servlet/ListCustomerServlet'");
 			request.getRequestDispatcher("/message.jsp").forward(request, response);
