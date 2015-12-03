@@ -146,4 +146,60 @@ public class CustomerDaoImpl implements CustomerDao {
 			JdbcUtils.release(conn, st, rs);
 		}
 	}
+	
+	/**
+	 * @param startIndex:开始取的位置(要+1)
+	 * @param pageSize：要取的数据个数
+	 * @return list: 封装了取出的客户数据
+	 * @throws DaoException
+	 */
+	@Override
+	public List<Customer> getPageData(int startIndex, int pageSize) throws DaoException{
+		try {
+			conn = JdbcUtils.getConnection();
+			String sql = "select * from customer limit ?,?";
+			st = conn.prepareStatement(sql);
+			st.setInt(1, startIndex);
+			st.setInt(2, pageSize);
+			rs = st.executeQuery();
+			List<Customer> list = new ArrayList<Customer>();
+			while(rs.next()){
+				Customer customer = new Customer();
+				customer.setId(rs.getString("id"));
+				customer.setName(rs.getString("name"));
+				customer.setGender(rs.getString("gender"));
+				customer.setBirthday(rs.getDate("birthday"));
+				customer.setEmail(rs.getString("email"));
+				customer.setCellphone(rs.getString("cellphone"));
+				customer.setType(rs.getString("type"));
+				customer.setLikes(rs.getString("preference"));
+				customer.setDescription(rs.getString("description"));
+				list.add(customer);
+			}
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new DaoException(e);
+		} finally {
+			JdbcUtils.release(conn, st, rs);
+		}
+	}
+	
+	//get total record
+	@Override
+	public int getTotalRecord() throws DaoException{
+		try {
+			conn = JdbcUtils.getConnection();
+			String sql = "select count(*) from customer";
+			st = conn.prepareStatement(sql);
+			rs = st.executeQuery();
+			if(rs.next()){
+				return rs.getInt(1);
+			}
+			return 0;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new DaoException(e);
+		}
+	}
 }

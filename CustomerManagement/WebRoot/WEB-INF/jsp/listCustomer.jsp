@@ -18,9 +18,9 @@
   
   <body style="text-align:center;">
 	<c:choose>
-	  <c:when test="${!empty(list) }">
+	  <c:when test="${!empty(page.list) }">
 	    <h2>客户列表</h2>
-	    <table style="text-align:center;" border="1" width="80%">
+	    <table style="text-align:center;" border="1" width="80%" align="center">
 	    	<tr>
 		    	<td>客户姓名</td>
 		   		<td>性别</td>
@@ -32,7 +32,7 @@
 		   		<td>备注</td>
 		   		<td>操作</td>
 	   		</tr>
-	   		<c:forEach var="customer" items="${list }">
+	   		<c:forEach var="customer" items="${page.list }">
 	   		<tr>
 	   			<td>${customer.name }</td>
 		   		<td>${customer.gender }</td>
@@ -59,10 +59,12 @@
 		   	</tr>
 	   		</c:forEach>
 	   </table>
+	   <br><br>
+	   <%@ include file="/WEB-INF/jsp/page.jsp" %> 
 	  </c:when>
 	  <c:otherwise>
 	  	对不起，您还没有任何客户信息！
 	  </c:otherwise>
-    </c:choose>
+    </c:choose>  
  </body>
 </html>

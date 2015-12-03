@@ -3,6 +3,7 @@ package service;
 import java.util.List;
 
 import domain.Customer;
+import domain.Page;
 import exception.DaoException;
 
 public interface BusinessService {
@@ -16,5 +17,7 @@ public interface BusinessService {
 	void deleteCustomer(String id) throws DaoException;
 
 	Customer findCustomer(String id) throws DaoException;
+	
+	Page getPageData(String pageNum, String url) throws DaoException;
 
 }

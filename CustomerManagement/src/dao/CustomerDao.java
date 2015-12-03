@@ -20,5 +20,11 @@ public interface CustomerDao {
 
 	//get all customers from database
 	List<Customer> getAll() throws DaoException;
+	
+	//get page data
+	List<Customer> getPageData(int startIndex, int pageSize) throws DaoException;
+	
+	//get total record
+	int getTotalRecord() throws DaoException;
 
 }

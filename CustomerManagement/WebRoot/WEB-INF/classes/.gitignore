@@ -1,6 +1,8 @@
-/utils/
-/web/
 /dao/
+/db.properties
+/domain/
 /exception/
 /junit/
 /service/
+/utils/
+/web/

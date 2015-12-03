@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import domain.Customer;
+import domain.Page;
 import exception.DaoException;
 import service.BusinessService;
 import service.impl.BusinessServiceImpl;
@@ -22,10 +23,11 @@ public class ListCustomerServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		
 		try {
+			String pageNum = request.getParameter("pageNum");
+			String servletName = this.getServletName();  //注意这里不能写成request.getServerName(); 这个返回的是localhost
 			BusinessService service = new BusinessServiceImpl();
-			List<Customer> list;
-			list = service.getAllCustomer();
-			request.setAttribute("list", list);
+			Page page = service.getPageData(pageNum, request.getContextPath() + "/servlet/" + servletName);
+			request.setAttribute("page", page);
 			request.getRequestDispatcher("/WEB-INF/jsp/listCustomer.jsp").forward(request, response);
 		} catch (DaoException e) {
 			e.printStackTrace();

@@ -37,10 +37,6 @@
 
 
 
-
-
-
-
   <servlet-mapping>
     <servlet-name>AddCustomerUIServlet</servlet-name>
     <url-pattern>/servlet/AddCustomerUIServlet</url-pattern>
@@ -73,6 +69,7 @@
     <servlet-name>UpdateCustomerUIServlet</servlet-name>
     <url-pattern>/servlet/UpdateCustomerUIServlet</url-pattern>
   </servlet-mapping>
+
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
